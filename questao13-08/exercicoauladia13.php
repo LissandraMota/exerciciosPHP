@@ -22,7 +22,7 @@ $soma = $nota1 + $nota2 + $nota3 + $nota4;
 $media = $soma / $divisor;
 
 
-if($media < 7){
+if($media < 6){
    echo "aluno reprovado";
 } else {
     echo "aluno aprovado";
