@@ -2,7 +2,7 @@
 
 echo "Dgite um número inteiro: " .PHP_EOL;
 
-$numero = readline("\nnúmero");
+$numero = readline("número:");
 
 if ($numero %2 == 0){
     echo "O número é par" .PHP_EOL;
