@@ -8,6 +8,7 @@ require "src/classes/ArquivoTarefa.php";
 // header('Location: /resource/lista_tarefas.html');
 
 //lendo a template html
+// ler o conteudo de um arquivo para string:
 $template = file_get_contents('resource/lista_tarefas.html');
 
 //lendo o arquivo
@@ -21,11 +22,13 @@ $linhasTabela = '';
 //iteirando as tarefas
 foreach ($listaTarefasJSON as $tarefa) {
     $tr = ''; //uma linha
-    $tr = str_replace('#STATUS', $tarefa->getStatus(), $modeloTarefa);
+                      //o que to procurando, o quero colocar no lugar, onde procurar
+    $tr = str_replace('#STATUS', $tarefa->legenda(), $modeloTarefa);
     $tr = str_replace('#ID',     $tarefa->getId(), $tr);
     $tr = str_replace('#NOME',  $tarefa->getNome(), $tr);
     $tr = str_replace('#DATALIMITE', $tarefa->getDataLimite(), $tr);
-    $linhasTabela .= $tr;
+    $tr = str_replace('#MARCADO', $tarefa->getStatus() == 0 ? 'checked' : '', $tr);
+    $linhasTabela .= $tr; //concatena
 }
 
 echo str_replace('#TAREFAS', $linhasTabela, $template);

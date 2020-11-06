@@ -21,6 +21,7 @@ class ArquivoTarefa
             $arr['status'] = $tarefa->getStatus();
             $dataTarefas[] = $arr;
         }        
+        //json encode --> pega um array e trasnforma em string
         $jsonTarefas = json_encode($dataTarefas); 
         file_put_contents($this->caminho, $jsonTarefas);
     }
