@@ -2,6 +2,7 @@
 
 class ArquivoTarefa
 {
+    //atributo
     private $caminho;
 
     public function __construct(string $caminho)
@@ -11,6 +12,7 @@ class ArquivoTarefa
 
     public function salva(array $tarefas)
     {
+        //é feito um array para conseguir pegar os atributos privates
         $dataTarefas = [];
         $cont = 1;
         foreach ($tarefas as $key => $tarefa) {
@@ -29,6 +31,7 @@ class ArquivoTarefa
 
     public function le()
     {
+        //desfaz o array e volta a ser tarefa
         $jsonTarefas = json_decode(file_get_contents($this->caminho));
         $dataTarefas = [];
         foreach ($jsonTarefas as $key => $obj) {

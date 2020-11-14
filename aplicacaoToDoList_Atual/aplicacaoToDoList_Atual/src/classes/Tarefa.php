@@ -2,6 +2,7 @@
 
 class Tarefa
 {
+    //atributos
     private $id;
     private $status;
     private $nome;
